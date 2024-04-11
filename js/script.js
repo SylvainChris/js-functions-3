@@ -1,12 +1,45 @@
 // -----------------------------------
 console.log("1/ Implémentez une fonction qui transforme un texte en camelCase.");
 
-console.log();
+const sentence = "Qui veut voler la peau de Roger Rabbit ?"
+
+/**
+ * Transforms a text into camelCase
+ * @param {string} text 
+ * @returns {string} the text in camelCase
+ */
+function transformTextInCamelcase(text) {
+    const newText = text.toLowerCase();
+    const textArray = newText.split(" ");
+    return textArray.reduce((s, c) =>
+        s + (c.charAt(0).toUpperCase() + c.slice(1))
+    )
+}
+
+console.log(transformTextInCamelcase(sentence));
 
 // -----------------------------------
 console.log("2/ Implémentez une fonction qui retroune le plus grand mot d'un texte.");
 
-console.log();
+/**
+ * Gets the longest word of a text
+ * @param {string} text 
+ * @returns {string} the longest word of the text
+ */
+function getLongestWord (text) {
+    let longestWord;
+    let maxLength;
+    const textArray = text.split(" ");
+    for (const word of textArray) {
+        if (word.length > maxLength || maxLength === undefined){
+            longestWord = word;
+            maxLength = word.length;
+        }
+    }
+    return longestWord;
+}
+
+console.log(getLongestWord("sentence"));
 
 // -----------------------------------
 console.log("3/ Implémentez une fonction qui converti un nombre de seconde en un tableau exprimant cette durée en secondes, minutes, heures, jours, semaines et années.");

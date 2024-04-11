@@ -92,12 +92,45 @@ console.log(getStringDuration((getTotalDuration(nbSecond))));
 // -----------------------------------
 console.log("5/ Implémentez une fonction qui compte dans le texte en premier paramètre, le nombre d'occurence de la lettre en second paramètre.");
 
-console.log();
+/**
+ * Counts the number of occurences of a letter in a text
+ * @param {string} text 
+ * @param {string} x - a letter
+ * @returns 
+ */
+function countLetterNumber(text, x) {
+    let countLetter = 0;
+    for (const letter of text.split('')) {
+        if (letter === x) countLetter++;
+    }
+    return countLetter;
+}
+
+console.log(countLetterNumber(sentence, "i"));
 
 // -----------------------------------
 console.log("6/ Implémentez une fonction qui retourne les X plus grandes valeurs d'un tableau.");
 
-console.log();
+function getXHighestValuesOfAnArray(array, x) {
+    let maxValue;
+    let maxValueArray = [];
+    let i = 0;
+    while (i < x) {
+        for (const value of array) {
+            if (value > maxValue || maxValue === undefined) {
+                maxValue = value;
+            }
+        }
+        maxValueArray.push(maxValue);
+        i++;
+    }
+    return maxValueArray;
+}
+
+console.log(getXHighestValuesOfAnArray([10, 25, 65, 32], 2));
+
+
+
 
 // -----------------------------------
 console.log("7/ Retournez la liste des prenoms des joueurs ci-dessous par ordre de score décroissant.");
@@ -116,7 +149,16 @@ const players  = {
     Jenny: 125
 };
 
-console.log();
+let scores = Object.values(players);
+
+scores.sort(function(score1, score2){
+    if (score1 > score2) return -1;
+    else return 1;
+})
+
+console.log(scores);
+
+
 
 // -----------------------------------
 console.log("8/ Dans la liste des scores ci-dessus sélectionnez une partie des meilleurs joueurs jusqu'à obtenir un total de score des joueurs sélectionnés de 1000.");

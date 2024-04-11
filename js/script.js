@@ -42,9 +42,43 @@ function getLongestWord (text) {
 console.log(getLongestWord("sentence"));
 
 // -----------------------------------
-console.log("3/ Implémentez une fonction qui converti un nombre de seconde en un tableau exprimant cette durée en secondes, minutes, heures, jours, semaines et années.");
+console.log("3/ Implémentez une fonction qui converti un nombre de secondes en un tableau exprimant cette durée en secondes, minutes, heures, jours, semaines et années.");
 
-console.log();
+const nbSecond = 3205742285;
+
+/**
+ * Gets the total duration of a duration in seconds
+ * @param {number} seconds - duration in seconds
+ * @returns {Array} array of strings : duration in years, weeks, days, hours, minutes and secondes
+ */
+function getTotalDuration(seconds) {
+
+    const duration = [];
+
+    const years = Math.floor(seconds / (3600 * 24 * 7 * 52));
+    const weeks = Math.floor((seconds % (3600 * 24 * 7 * 52)) / (3600 * 24 * 7));
+    const days = Math.floor((seconds % (3600 * 24 * 7)) / (3600 * 24));
+    const hours = Math.floor((seconds % (3600 * 24)) / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secondes = Math.floor(seconds % 60);
+
+    duration.push(years > 0 ? years + (years == 1 ? " year" : " years") : "0 year");
+    duration.push(weeks > 0 ? weeks + (weeks == 1 ? " week" : " weeks") : "0 week");
+    duration.push(days > 0 ? days + (days == 1 ? " day" : " days") : "0 day");
+    duration.push(hours > 0 ? hours + (hours == 1 ? " hour" : " hours") : "0 hour");
+    duration.push(minutes > 0 ? minutes + (minutes == 1 ? " minute" : " minutes") : "0 minute");
+    duration.push(secondes > 0 ? secondes + (secondes == 1 ? " second" : " seconds") : "0 second");
+    
+    return duration;
+
+  }
+
+  console.log(getTotalDuration(nbSecond));
+
+
+
+
+
 
 // -----------------------------------
 console.log("4/ Implémentez une fonction qui prend en paramètre un tableau retourné par la fonction précédente et retourne la chaîne de caractère correspondante.");

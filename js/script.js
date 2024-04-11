@@ -75,15 +75,19 @@ function getTotalDuration(seconds) {
 
   console.log(getTotalDuration(nbSecond));
 
-
-
-
-
-
 // -----------------------------------
 console.log("4/ Implémentez une fonction qui prend en paramètre un tableau retourné par la fonction précédente et retourne la chaîne de caractère correspondante.");
 
-console.log();
+/**
+ * Gets the total duration in a string
+ * @param {array} array - array of strings : duration in years, weeks, days, hours, minutes and secondes
+ * @returns {string} string representing the total duration
+ */
+function getStringDuration (array) {
+    return array.join(', ');
+}
+
+console.log(getStringDuration((getTotalDuration(nbSecond))));
 
 // -----------------------------------
 console.log("5/ Implémentez une fonction qui compte dans le texte en premier paramètre, le nombre d'occurence de la lettre en second paramètre.");
